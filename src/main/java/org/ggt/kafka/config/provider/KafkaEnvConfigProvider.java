@@ -25,7 +25,7 @@ public class KafkaEnvConfigProvider implements ConfigProvider {
   public ConfigData get(String path) {
     LOGGER.debug("get(path) method invoked [path={}] ...", path);
     ConfigData configData = new ConfigData(propertiesProvider.getProperties());
-    LOGGER.info("returning ConfigData [data={}, ttl={}]", configData.data(), configData.ttl());
+    LOGGER.debug("returning ConfigData [data={}, ttl={}]", configData.data(), configData.ttl());
 
     return configData;
   }
@@ -34,7 +34,7 @@ public class KafkaEnvConfigProvider implements ConfigProvider {
   public ConfigData get(String path, Set<String> keys) {
     LOGGER.info("get(path, keys) method invoked [path={}, keys={}]", path, keys);
     ConfigData configData = new ConfigData(propertiesProvider.getProperties(keys));
-    LOGGER.info("returning ConfigData [data={}, ttl={}]", configData.data(), configData.ttl());
+    LOGGER.debug("returning ConfigData [data={}, ttl={}]", configData.data(), configData.ttl());
 
     return configData;
   }
