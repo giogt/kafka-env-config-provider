@@ -66,5 +66,5 @@ You can then reference environment variables from `Kafka connect` connector
 configurations as follows:
 
 ```
-${env:/ENVIRONMENT_VARIABLE_NAME}
+${env:ENVIRONMENT_VARIABLE_NAME}
 ```
