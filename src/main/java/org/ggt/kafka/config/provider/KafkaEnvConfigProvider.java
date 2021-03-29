@@ -32,7 +32,7 @@ public class KafkaEnvConfigProvider implements ConfigProvider {
 
   @Override
   public ConfigData get(String path, Set<String> keys) {
-    LOGGER.info("get(path, keys) method invoked [path={}, keys={}]", path, keys);
+    LOGGER.debug("get(path, keys) method invoked [path={}, keys={}]", path, keys);
     ConfigData configData = new ConfigData(propertiesProvider.getProperties(keys));
     LOGGER.debug("returning ConfigData [data={}, ttl={}]", configData.data(), configData.ttl());
 
@@ -45,7 +45,7 @@ public class KafkaEnvConfigProvider implements ConfigProvider {
 
   @Override
   public void configure(Map<String, ?> configs) {
-    LOGGER.info("received config parameters: {}", configs);
+    LOGGER.debug("received config parameters: {}", configs);
   }
 
 }
