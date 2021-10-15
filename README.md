@@ -31,6 +31,8 @@ In order to install this config provider on a `Kafka connect` instance:
   (e.g., `/usr/local/share/java/kafka-connect/plugins/kafka-env-config-provider`)
   (if are using Docker, create an image that extends the `Kafka connect` standard
   one from Confluent, adding this jar)
+    - if extending `confluentinc/cp-kafka-connect` version >= 6, [you must](https://github.com/confluentinc/cp-docker-images/issues/828#issuecomment-720533576)
+      include the jar in `/usr/share/java/cp-base-new/`
 - in the `Kafka connect` worker configuration, add the directory where you
   placed the jar to the plugins path
   - if you are using the `confluent-oss` platform, edit the file
@@ -39,9 +41,9 @@ In order to install this config provider on a `Kafka connect` instance:
     ```
     plugin.path=share/java,/usr/local/share/java/kafka-connect/plugins/kafka-env-config-provider
     ```
-  - if you are extending the `confluentinc/cp-kafka-connect` Docker image, set
+  - if you are extending the `confluentinc/cp-kafka-connect` Docker image with version < 6, set
     the environment variable `CONNECT_PLUGIN_PATH` value with the jar directory
-    when running the container
+    when running the container.  For versions >= 6 you can omit this step.
 
 ## Usage
 
